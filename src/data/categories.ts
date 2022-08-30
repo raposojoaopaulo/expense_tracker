@@ -20,6 +20,11 @@ export const categories: Category = {
     title: 'Leisure',
     color: 'purple',
     expense: true
+  },
+  freelance: {
+    title: 'Freela',
+    color: 'lightblue',
+    expense: true
   }
 }
 

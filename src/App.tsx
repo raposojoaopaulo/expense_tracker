@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 
 import { Container, Header, HeaderText, Body } from './App.styles';
 import { Item } from './types/Item';
-import { Category } from './types/Category';
 import { items } from './data/items'
 import { categories } from './data/categories'
 import { TableArea } from './components/TableArea'
 import { InfoArea } from './components/InfoArea';
+import { FormArea } from './components/FormArea'
 
 import { getCurrentMonth, filterListByMonth } from './helpers/dateFilter' ;
 
@@ -44,6 +44,12 @@ const App = () => {
     setCurrentMonth(newMonth);
   }
 
+  const handleAddItem = (item: Item) => {
+    let newList = [...list];
+    newList.push(item);
+    setList(newList);
+  }
+
   return (
     <Container>
       <Header>
@@ -56,6 +62,7 @@ const App = () => {
           income={income}
           expense={expense}
         />
+        <FormArea  onAdd={handleAddItem} />
         <TableArea list={filteredList} />
       </Body>
     </Container>
